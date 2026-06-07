@@ -16,13 +16,10 @@ function AllProduct() {
          });
   }, []);
 
-  
+
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-
-  
   return (
     <div style={{ padding: '30px', fontFamily: 'sans-serif', background: '#f9f9f9', minHeight: '100vh' }}>
       <h1 style={{ color: '#333' }}>All Products</h1>
@@ -33,14 +30,13 @@ function AllProduct() {
         placeholder="Search products by title..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ width: '100%', maxWidth: '400px', padding: '12px', marginBottom: '30px', borderRadius: '6px', border: '1px solid #ccc', fontSize: '16px' }}
       />
 
       {/* Grid Display */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '25px' }}>
+      <div >
         {filteredProducts.map((product) => (
-          <div key={product.id} style={{ background: '#fff', border: '1px solid #eee', borderRadius: '8px', padding: '15px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
-            <img src={product.image} alt={product.title} style={{ width: '100%', height: '180px', objectFit: 'contain', marginBottom: '15px' }} />
+          <div key={product.id} >
+            <img src={product.image} alt={product.title} />
             <div>
               <h4>{product.title}</h4>
               <p>${product.price}</p>
